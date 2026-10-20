@@ -1,0 +1,20 @@
+# Local Python environments and caches
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated firmware build output
+Debug/
+Release/
+build/
+
+# Local IDE workspace and OS files
+.metadata/
+.DS_Store
+Thumbs.db
+
+# Runtime logs
+*.log

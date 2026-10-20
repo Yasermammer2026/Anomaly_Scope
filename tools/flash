@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+set -euo pipefail
+firmware_dir='/mnt/c/Anomaly_scope/Anomaly_Scope/fp_datalog/Projects/STM32U585AI-STWIN.box/Applications/DATALOG2/Binary'
+if [[ $# != 1 || ${1:-} == --help || ${1:-} == -h ]]; then
+    echo 'Usage: flash FIRMWARE.bin|FIRMWARE.hex|FIRMWARE.elf'
+    echo 'Accepts a file path or a name from the STWIN.box Binary folder.'
+    echo 'BIN files are written at 0x08000000. HEX/ELF files supply their own addresses.'
+    echo 'Uses Linux CubeProgrammer when available, otherwise Windows CubeIDE CubeProgrammer.'
+    echo 'For Windows CubeProgrammer, leave ST-LINK attached to Windows.'
+    exit 0
+fi
+firmware=$1
+if [[ ! -f "$firmware" && "$firmware" != */* ]]; then
+    firmware="$firmware_dir/$firmware"
+fi
+if [[ ! -f "$firmware" ]]; then
+    echo "Firmware not found: $1" >&2
+    exit 1
+fi
+address=()
+case "${firmware,,}" in
+    *.bin) address=(0x08000000) ;;
+    *.hex|*.elf) ;;
+    *) echo 'Expected a .bin, .hex or .elf firmware file.' >&2; exit 1 ;;
+esac
+programmer=${STM32_PROGRAMMER_CLI:-}
+if [[ -z "$programmer" ]]; then
+    programmer=$(command -v STM32_Programmer_CLI || true)
+fi
+if [[ -z "$programmer" ]]; then
+    for candidate in "$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI" /opt/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI; do
+        if [[ -x "$candidate" ]]; then programmer=$candidate; break; fi
+    done
+fi
+if [[ -z "$programmer" ]]; then
+    for candidate in /mnt/c/ST/STM32CubeIDE_*/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_*/tools/bin/STM32_Programmer_CLI.exe '/mnt/c/Program Files/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe'; do
+        if [[ -x "$candidate" ]]; then programmer=$candidate; break; fi
+    done
+fi
+if [[ -z "$programmer" || ! -x "$programmer" ]]; then
+    echo 'STM32CubeProgrammer not found. Install it first.' >&2
+    echo 'For a custom location, set STM32_PROGRAMMER_CLI to its executable path.' >&2
+    exit 1
+fi
+if [[ "$programmer" == *.exe ]]; then
+    firmware=$(wslpath -w "$(realpath -- "$firmware")")
+    echo 'Using Windows CubeProgrammer: ST-LINK must be attached to Windows.'
+fi
+printf 'Flashing STWIN.box with %s\n' "$firmware"
+exec "$programmer" -c port=SWD -w "$firmware" "${address[@]}" -v -rst

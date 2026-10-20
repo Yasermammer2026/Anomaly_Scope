@@ -1,0 +1,11 @@
+{
+  "upstream": "https://github.com/STMicroelectronics/fp-sns-datalog2.git",
+  "commit": "16f61ea1e0ad0dae529545b1e1ba50b874cbaacc",
+  "board": "STEVAL-STWINBX1 (STWIN.box), STM32U585AI",
+  "application": "Projects/STM32U585AI-STWIN.box/Applications/DATALOG2",
+  "upstream_missing_links": [],
+  "linked_resources_checked": 1630,
+  "selected_files": 2041,
+  "full_repository_files": 15574,
+  "selected_bytes": 72493587
+}
