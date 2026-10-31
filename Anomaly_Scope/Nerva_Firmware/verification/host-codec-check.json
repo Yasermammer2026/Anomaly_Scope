@@ -1,0 +1,13 @@
+{
+  "pass_six_exact_roundtrips": true,
+  "codec_modes": [
+    "raw",
+    "lz4",
+    "delta_lz4",
+    "predictor_lz4",
+    "delta_zigzag_bitpack",
+    "delta_zigzag_bitpack_lz4"
+  ],
+  "no_network_connection": true,
+  "external_dependencies": "Installed NumPy and LZ4; LZ4 supplied by existing third-party dependency location for this offline check; recipient installs Host/requirements.txt."
+}

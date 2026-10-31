@@ -1,0 +1,27 @@
+{
+  "hardware": "STEVAL-STWINBX1 / STM32U585AIIxQ / EMW3080 V2.3.4",
+  "base": "FP-SNS-DATALOG2 V3.3.0 with the verified operational SD/lossless Wi-Fi cycle implementation",
+  "configuration": "STM32CubeIDE Release; no STWIN diagnostic-only or receive-owner experiment selected",
+  "verified_operational_elf_SHA256": "41fea4e1a72cba4253b7beb1e98bcace92550143d18b821dc167543cf3d8b3eb",
+  "verified_operational_bin_SHA256": "19864e4062b357eb4f12235106651f6cfbe02f7fe6304240e361bd671329c28f",
+  "verified_operational_artifacts_included": false,
+  "reason": "Original provisioned ELF/BIN contain private Wi-Fi credentials. Only their identities are exported. Rebuilt unprovisioned binaries will have different hashes and are not hardware-qualified.",
+  "source_changes": {
+    "SDK/Projects/STM32U585AI-STWIN.box/Applications/DATALOG2/NetX/app/cycle30_network_private.h": "Private network values replaced with empty deployment template; operational code unchanged"
+  },
+  "public_operational_source_hashes": {
+    "NetX/app/throughput_client.c": "df5ce957e129061be7080723ef5dfa173c05d2700f37d8f2ece352a4eb74c3c0",
+    "NetX/app/lossless_client.c": "bc91316b401742e4d5f511aa8a5478d6153cf38dd1dceb6c5f636a53c6db17ca",
+    "NetX/app/app_netxduo.c": "96c1a1bb305dc7cb252220cae35b7bcdc86ac1b15ea1d849f5f5e6b483dcf040",
+    "FileX/App/filex_dctrl_class.c": "b28f783a9aae59367607adcf1e92d5124518b00834af950e74c0036c520761c7",
+    "Core/Src/sd_diag.c": "84266811b4c2825913dce074f42ef134e2c2c91af96aef54185b9221ec12d427",
+    "NetX/app/cycle30.h": "8f9a15d496476dc062a15c87f1c11106373f731cf88711bb57cd0d2aa7d19fb4",
+    "NetX/app/cycle30.inc": "3c6c6cd76615ee01905cf8a3ae1a09d6dbb682e889629b2a63d15e302c610226"
+  },
+  "verified_one_hour_recording_seconds": 3600.212,
+  "verified_one_hour_delivery_seconds": 2154.879758,
+  "normal_compiled_period_seconds": 1800,
+  "one_hour_test_period_was_SD_and_RAM_configuration": true,
+  "source_data_deleted": false,
+  "hardware_zero_loss_qualified": false
+}

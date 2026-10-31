@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+ 663564	   6168	 780632	1450364	 16217c	DATALOG2-STWIN.box.elf

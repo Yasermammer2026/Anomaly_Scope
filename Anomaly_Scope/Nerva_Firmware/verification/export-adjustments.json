@@ -1,0 +1,6 @@
+{
+  "firmware": "Only private Wi-Fi header values were replaced with empty deployment templates; public operational code and CubeIDE configuration are unchanged.",
+  "Host/tools/receive_once.py": "Same tested one-hour receiver; ROOT changed to its packaged location.",
+  "Host/tools/compression_corpus_native.py": "Native class/codecs preserved; generated library directory made local and unused benchmark main omitted.",
+  "Host/tools/compression_corpus.py": "Codec functions preserved; private-machine dependency search path and unused corpus/benchmark entrypoints omitted."
+}

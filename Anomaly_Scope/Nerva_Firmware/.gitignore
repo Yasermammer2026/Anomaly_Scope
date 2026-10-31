@@ -1,0 +1,7 @@
+# Deployment secrets must remain local. The delivered header is an empty template.
+SDK/Projects/STM32U585AI-STWIN.box/Applications/DATALOG2/NetX/app/cycle30_network_private.h
+**/Release/
+**/Debug/
+**/__pycache__/
+Host/artifacts/
+*.log

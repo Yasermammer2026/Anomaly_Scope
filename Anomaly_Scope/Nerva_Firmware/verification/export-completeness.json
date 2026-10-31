@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-30T22:29:48.995261+00:00",
+  "selected_operational_SHA256": "41fea4e1a72cba4253b7beb1e98bcace92550143d18b821dc167543cf3d8b3eb",
+  "original_application_seal_rechecked": 366,
+  "unchanged_copied_SDK_files_verified": 6577,
+  "credentials_check_all_exported_files": true,
+  "original_provisioned_images_excluded": true,
+  "compiler_translation_units": 1067,
+  "compiler_SDK_input_files": 1549,
+  "dependency_links": 1616,
+  "independent_relocated_build": true,
+  "original_project_dependency_count": 0,
+  "build_errors": 0,
+  "build_warnings": 0,
+  "generated_build_cache_in_export": false,
+  "board_access": false,
+  "exact_original_binary_reproduction": false,
+  "rebuilt_unprovisioned_artifact_SHA256": {
+    "DATALOG2-STWIN.box.elf": "af21f67d030d6a0bd77b2a185a1781f98fbe84d0a3b22a21ed059ff122648b5b",
+    "DATALOG2-STWIN.box.bin": "a1ba53c4f79e681a6f06a4ec7395b287fda853f3fbb67f01dd3d3add8f62e2c3",
+    "DATALOG2-STWIN.box.map": "be1a13aa531ea79f86e32c3a09a068d90e2854adca1e6fc7b31549469fcbaaf3"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "approved_for_onehour_storage": true,
+  "receiver_cap_bytes": 3489660928,
+  "note": "Example explicit local archive cap. Check free space before using. No receiver is started by packaging/building."
+}
